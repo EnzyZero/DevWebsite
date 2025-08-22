@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "JetBrains Mono", monospace, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   box-sizing: border-box;
@@ -8,16 +8,9 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: var(--bg-color);
   
-  --bg-color:  rgb(18, 18, 18);
+  --bg-color: rgb(50, 50, 50);
   --nice-blue: rgb(90, 95, 238);
   --nice-purple: rgb(150, 75, 255);
-}
-
-.cards-container  {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
 }
 
 h1 {
@@ -25,93 +18,78 @@ h1 {
   font-size: 60px;
 }
 
-p {
-  font-family: "JetBrains Mono", monospace;
+.cards-container  {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.cards-container::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 90%;
+  top: 300px;
+  left: 5px;
+  background-color: oklch(from var(--bg-color) calc(l + .3) c h);
+  border-radius: 8px;
 }
 
 .card {
+  position: relative;
   width: 80%;
   max-width: 600px;
-  padding: 1.5rem;
-  position: relative;
+  padding: 10px;
 
-  border: 2px solid transparent;
-  border-radius: 8px;
-
-  background-image: 
-    linear-gradient(var(--bg-color), var(--bg-color)),
-    linear-gradient(to bottom right,
-      grey,
-      var(--bg-color) 10%,
-      var(--bg-color) 90%,
-      grey 100%
-    );
-
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  transition-property:padding;
+  transition-property: background, box-shadow;
+  transition-duration: 500ms;
   transition-timing-function: ease-in-out;
-  transition-duration: 700ms;
 }
 
 .card:hover,
 .card:focus {
-  width: 85%;
-  padding-left: 3%;
-  padding-right: 3%;
-
-  background-image:
-    linear-gradient(var(--bg-color), var(--bg-color)),
-    linear-gradient(to bottom right,
-      grey,
-      var(--bg-color) 15%,
-      var(--bg-color) 85%,
-      grey 100%
-    );
+  border-radius: 8px;
+  fill-opacity: 0.5;
+  background: oklch(from var(--bg-color) calc(l + .01) c h);
+  box-shadow: 2px 2px 20px #00000080;
 }
 
-.card .title-wrapper {
-  position: absolute;
-  height: 10px;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  background: var(--bg-color);
-  padding-left: 15px;
-  padding-right: 15px;
+.card-separator {
+  height: 0;
+  border: none;
+  width: 80%;
+  max-width: 600px;
 }
 
 .card h2 {
   position: relative;
-  top: -50px;
-
-  color: transparent;
-  background: linear-gradient(to bottom right,
-    var(--nice-blue) 20%,
-    var(--nice-purple) 100%);
-
-  background-clip: text;
-
-  font-size: 35px;
-}
-
-.card h3 {
-  position: absolute;
-  top: 0;
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
   left: 50%;
   transform: translateX(-50%);
 
-  color: grey;
+  font-family: "Jersey 10";
+  font-size: 60px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card .timepoint {
+  font-family:  "Jersey 10";
+  font-size: 20pt;
+  width: fit-content;
 }
 
 .card .techstack {
   position: relative;
   padding: 0;
   width: fit-content;
-  top: 10px;
-  bottom: 10px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -126,9 +104,14 @@ p {
 
 .card .techstack li {
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 8px;
   padding-bottom: 3px;
-  background: rgb(46, 46, 46);
+  background: oklch(from var(--bg-color) calc(l + .1) c h);
   border-radius: 30px;
   font-weight: bold;
+}
+
+.card p {
+  margin-top: 20px;
+  padding-left: 10px;
 }
