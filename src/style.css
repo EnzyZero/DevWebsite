@@ -11,6 +11,7 @@
   --bg-color: rgb(50, 50, 50);
   --nice-blue: rgb(90, 95, 238);
   --nice-purple: rgb(150, 75, 255);
+  --timeline-bar-color: #ffffff90;
 }
 
 h1 {
@@ -18,7 +19,15 @@ h1 {
   font-size: 60px;
 }
 
-.cards-container  {
+#timeline-bar {
+  position: absolute;
+  background: var(--timeline-bar-color);
+  height: 100%;
+  width: 5px;
+  border-radius: 8px;
+}
+
+.timeline-container  {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -28,44 +37,76 @@ h1 {
   margin: 0 auto;
 }
 
-.cards-container::before {
-  content: "";
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 180px 1fr;
+  grid-template-rows: auto;
+
+  justify-content: center;
+  align-content: center;
+
+  width: 90%;
+  max-width: 1300px;
+}
+
+.timeline-center {
+  display: grid;
+  place-items: center;
+}
+
+.timeline-point {
+  position: relative;
+  z-index: 1; 
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+
+  background: red;
+  background-clip:content-box;
+  border: 3px solid #ffffff;
+}
+
+.timeline-point.circle-to-left::before {
+  content: '';
   position: absolute;
-  width: 5px;
-  height: 90%;
-  top: 300px;
-  left: 5px;
-  background-color: oklch(from var(--bg-color) calc(l + .3) c h);
+  display: inline-block;
+  height: 4px;
+  width: 100px;
   border-radius: 8px;
+  z-index: 0;
+  top: 5px;
+  left: -100px;
+
+  background: var(--timeline-bar-color);
+}
+
+.timeline-point.circle-to-right::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  height: 4px;
+  width: 100px;
+  border-radius: 8px;
+  z-index: 0;
+  top: 5px;
+  left: 15px;
+
+  background: var(--timeline-bar-color);
 }
 
 .card {
   position: relative;
-  width: 80%;
-  max-width: 600px;
-  padding: 10px;
+  z-index: 2;
+  padding: 3px 25px 10px 25px;
+  margin-top: 5px;
+  text-align: center;
 
-  transition-property: background, box-shadow;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
-}
-
-.card:hover,
-.card:focus {
+  background: oklch(from var(--bg-color) calc(l + .05) c h);
   border-radius: 8px;
-  fill-opacity: 0.5;
-  background: oklch(from var(--bg-color) calc(l + .01) c h);
-  box-shadow: 2px 2px 20px #00000080;
 }
 
-.card-separator {
-  height: 0;
-  border: none;
-  width: 80%;
-  max-width: 600px;
-}
 
-.card h2 {
+.timeline-container h2 {
   position: relative;
   width: fit-content;
   height: fit-content;
@@ -75,21 +116,29 @@ h1 {
 
   font-family: "Jersey 10";
   font-size: 60px;
+  line-height: 1;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.card .timepoint {
-  font-family:  "Jersey 10";
-  font-size: 20pt;
+.card-date {
+  position: relative;
   width: fit-content;
+  font-family: "Jersey 10";
+  font-size: 20pt;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
 }
 
-.card .techstack {
+.card p {
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+.techstack {
   position: relative;
   padding: 0;
-  width: fit-content;
-  top: -10px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -102,16 +151,11 @@ h1 {
   gap: 10px;
 }
 
-.card .techstack li {
+.techstack li {
   padding-left: 10px;
   padding-right: 8px;
   padding-bottom: 3px;
   background: oklch(from var(--bg-color) calc(l + .1) c h);
   border-radius: 30px;
   font-weight: bold;
-}
-
-.card p {
-  margin-top: 20px;
-  padding-left: 10px;
 }
