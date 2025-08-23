@@ -20,11 +20,25 @@ h1 {
 }
 
 #timeline-bar {
+  z-index: -2;
   position: absolute;
   background: var(--timeline-bar-color);
   height: 100%;
   width: 5px;
   border-radius: 8px;
+}
+
+#timeline-progress-bar {
+  z-index: -1;
+  position: fixed;
+  width: 5px;
+  inset: 0 auto 50vh;
+  border-radius: 8px;
+  background: linear-gradient(
+    to bottom,
+    grey,
+    crimson
+  );
 }
 
 .timeline-container  {
@@ -35,6 +49,7 @@ h1 {
   align-content: center;
   width: fit-content;
   margin: 0 auto;
+  gap: 50px;
 }
 
 .timeline-item {
@@ -49,9 +64,19 @@ h1 {
   max-width: 1300px;
 }
 
+.timeline-left {
+  grid-column: 1;
+}
+
 .timeline-center {
   display: grid;
-  place-items: center;
+  justify-items: center;
+  align-items: center;
+  grid-column: 2;
+}
+
+.timeline-right {
+  grid-column: 3;
 }
 
 .timeline-point {
@@ -69,29 +94,27 @@ h1 {
 .timeline-point.circle-to-left::before {
   content: '';
   position: absolute;
-  display: inline-block;
-  height: 4px;
+  display: inherit;
   width: 100px;
   border-radius: 8px;
   z-index: 0;
   top: 5px;
   left: -100px;
 
-  background: var(--timeline-bar-color);
+  border-bottom: 3px dashed var(--timeline-bar-color);
 }
 
 .timeline-point.circle-to-right::before {
   content: '';
   position: absolute;
-  display: inline-block;
-  height: 4px;
+  display: inherit;
   width: 100px;
   border-radius: 8px;
   z-index: 0;
   top: 5px;
   left: 15px;
 
-  background: var(--timeline-bar-color);
+  border-bottom: 3px dashed var(--timeline-bar-color);
 }
 
 .card {
@@ -103,8 +126,9 @@ h1 {
 
   background: oklch(from var(--bg-color) calc(l + .05) c h);
   border-radius: 8px;
+  box-shadow: 5px 5px 0 0 oklch(from var(--bg-color) calc(l + .025) c h);
+;
 }
-
 
 .timeline-container h2 {
   position: relative;
@@ -158,4 +182,29 @@ h1 {
   background: oklch(from var(--bg-color) calc(l + .1) c h);
   border-radius: 30px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+
+  .timeline-item {
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 1f 1f;
+    width: 90%;
+  }
+
+  .timeline-point.circle-to-left::before {
+    left: 15px;
+  }
+
+  .timeline-left {
+    grid-column: 2;
+  }
+
+  .timeline-center {
+    grid-column: 1;
+  }
+
+  .timeline-right {
+    grid-column: 2;
+  }
 }
