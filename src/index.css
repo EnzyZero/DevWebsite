@@ -1,4 +1,32 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "JetBrains Mono", monospace, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+
+  color: white;
+  background-color: var(--bg-color);
+  
+  --bg-color: rgb(50, 50, 50);
+  --bg-color-transparent: rgba(50, 50, 50, 0);
+  --nice-blue: rgb(90, 95, 238);
+  --nice-purple: rgb(150, 75, 255);
+  --timeline-bar-color: #ffffff90;
+}
+
+h1 {
+  position: relative;
+  width: fit-content;
+  left: 50%;
+  transform: translate(-50%);
+
+  font-size: 40pt;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translate(0);
+
+  transition-property: opacity, transform;
+  transition-timing-function: ease-out;
+  transition-duration: 600ms;
 }
 
