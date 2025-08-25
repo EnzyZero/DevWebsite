@@ -192,14 +192,29 @@
   font-weight: bold;
 }
 
-.timeline-right.fade-in-from-right {
-  opacity: 1;
-  transform: translateX(100px);
+.enter-from-right {
+  opacity: 0;
+  transform: translateX(50%);
+  transition: 600ms ease;
 }
 
-.timeline-left.fade-in-from-left {
+.enter-from-left {
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: 600ms ease;
+}
+
+.enter-from-back {
+  z-index: 0;
+  opacity: 0;
+  transition: 600ms ease;
+}
+
+.enter-from-right.show,
+.enter-from-left.show,
+.enter-from-back.show {
   opacity: 1;
-  transform: translateX(-100px);
+  transform: translate(0);
 }
 
 @media (max-width: 1000px) {

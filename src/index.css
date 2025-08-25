@@ -21,12 +21,4 @@ h1 {
   font-size: 40pt;
 }
 
-.fade-in {
-  opacity: 1;
-  transform: translate(0);
-
-  transition-property: opacity, transform;
-  transition-timing-function: ease-out;
-  transition-duration: 600ms;
-}
 

@@ -19,7 +19,7 @@ interface Options {
   threshold?: number;
 }
 
-export function useIsIntersecting<T extends Element>(ref: RefObject<T | null>, options?: Options) {
+export function useIsIntersecting<T extends Element>(ref: RefObject<T | null>, options?: Options): boolean {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
@@ -31,20 +31,14 @@ export function useIsIntersecting<T extends Element>(ref: RefObject<T | null>, o
 
     // trigger a render if isIntersecting changed
     const observer = new IntersectionObserver(([element]) => {
-
-      if (isIntersecting !== element.isIntersecting) 
-        setIsIntersecting(element.isIntersecting);
-
+      setIsIntersecting(element.isIntersecting);
     }, options ?? {});
 
     observer.observe(ref.current);
 
-    return () => {
-      if (ref.current)
-        observer.unobserve(ref.current!);
-    }
+    return () => observer.disconnect();
 
-  }, [ref, options]);
+  }, [ref.current]);
 
   return isIntersecting;
 }
