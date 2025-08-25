@@ -1,5 +1,5 @@
 import { type ReactNode, useRef } from 'react'
-import { useWindowWidth, useIsIntersecting } from '../customHooks'
+import { useWindowWidth, useIsIntersecting, useIsUpperHalf } from '../customHooks'
 import TimelinePoint from './TimelinePoint'
 
 interface NodePair {
@@ -12,7 +12,7 @@ export default function TimelineItem({ children }: NodePair) {
   const mobileScreen: boolean = width <= 1000;
 
   // see if left or right cards are intersecting
-  const options = { threshold: 0.2 };
+  const options = { threshold: 0.2, delay: 1000 };
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const leftIsIntersecting: boolean = useIsIntersecting(leftRef, options);
@@ -21,6 +21,12 @@ export default function TimelineItem({ children }: NodePair) {
   // add the show class if this is intersecting
   const leftShow: string = leftIsIntersecting ? 'show' : '';
   const rightShow: string = rightIsIntersecting ? 'show' : '';
+
+  // mark card and points as active if the points are in the upper half of the viewport
+  const leftPointRef = useRef(null);
+  const rightPointRef = useRef(null);
+  const leftPointIsUpperHalf = useIsUpperHalf(leftPointRef);
+  const rightPointIsUpperHalf = useIsUpperHalf(rightPointRef);
  
   // if on mobile, make two timeline points in diffrent containers. The Css will then assign them diffrent cells
   // in a grid.
@@ -29,25 +35,32 @@ export default function TimelineItem({ children }: NodePair) {
   <>
     {mobileScreen && 
       <div className={`timeline-center enter-from-back ${leftShow}`}>
-        <TimelinePoint direction="right" />
+        <TimelinePoint ref={leftPointRef} direction="right" active={leftPointIsUpperHalf} />
       </div>}
 
-    <div className={`timeline-center enter-from-back ${leftShow}`}>
-      {!mobileScreen && <TimelinePoint direction='left' />}
-      <TimelinePoint direction="right" />
+    <div className={`timeline-center enter-from-back ${rightShow}`}>
+      {!mobileScreen && <TimelinePoint ref={leftPointRef} direction='left' active={leftPointIsUpperHalf} />}
+      <TimelinePoint ref={rightPointRef} direction="right" active={rightPointIsUpperHalf} />
     </div>
   </>
 
+  const leftIsActive: string = leftPointIsUpperHalf
+    ? 'active'
+    : '';
+
+  const rightIsActive: string = rightPointIsUpperHalf
+    ? 'active'
+    : '';
 
   const leftCardOnLeftOrRightSide: ReactNode = mobileScreen
-    ? <div ref={leftRef} className={`timeline-right enter-from-right ${leftShow}`}>{leftCard}</div>
-    : <div ref={leftRef} className={`timeline-left enter-from-left ${leftShow}`}>{leftCard}</div>;
+    ? <div ref={leftRef} className={`timeline-right enter-from-right ${leftShow} ${leftIsActive}`}>{leftCard}</div>
+    : <div ref={leftRef} className={`timeline-left enter-from-left ${leftShow} ${leftIsActive}`}>{leftCard}</div>;
 
   return (
     <div className="timeline-item">
       {leftCardOnLeftOrRightSide}
       {centerTimelinePoints}
-      <div ref={rightRef} className={`timeline-right enter-from-right ${rightShow}`}>{rightCard}</div>
+      <div ref={rightRef} className={`timeline-right enter-from-right ${rightShow} ${rightIsActive}`}>{rightCard}</div>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function ExampleProject1() {
 
   return (
     <>
-      <h2 style={{color: 'crimson'}}>
+      <h2 style={{color: 'white'}}>
         Project 1
       </h2>
       <h3>2025</h3>

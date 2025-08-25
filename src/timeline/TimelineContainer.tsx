@@ -2,6 +2,7 @@ import TimelineBar from './TimelineBar'
 import TimelineItem from './TimelineItem'
 import ExampleProject1 from './constants/ExampleProject1'
 import './timeline.css'
+import './timeline_animations.css'
 
 export default function TimelineContainer() {
 

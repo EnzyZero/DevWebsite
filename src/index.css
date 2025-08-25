@@ -4,6 +4,7 @@
 
   color: white;
   background-color: var(--bg-color);
+  box-sizing: border-box;
   
   --bg-color: rgb(50, 50, 50);
   --bg-color-transparent: rgba(50, 50, 50, 0);

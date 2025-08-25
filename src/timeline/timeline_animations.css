@@ -1,0 +1,130 @@
+
+#timeline-progress-bar {
+  z-index: -1;
+  position: absolute;
+  width: 5px;
+  top: 0;
+  /*height will be manipulated with js */
+  border-radius: 8px;
+
+  background: linear-gradient(to bottom, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
+.timeline-point {
+  position: relative;
+  z-index: 1; 
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+
+  background: grey;
+  border: 3px solid #ffffff;
+
+  transition: 400ms ease;
+}
+
+.timeline-point.active {
+  height: 40px;
+  width: 12px;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.enter-from-right {
+  opacity: 0;
+  transform: translateX(50%);
+  transition: 600ms ease;
+}
+
+.enter-from-left {
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: 600ms ease;
+}
+
+.enter-from-back {
+  z-index: 0;
+  opacity: 0;
+  transition: 600ms ease;
+}
+
+.enter-from-right.show,
+.enter-from-left.show,
+.enter-from-back.show {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/*  The @property and the custom animation below let the conic gradient
+    rotate. 
+*/
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.timeline-right.active .timeline-card::before,
+.timeline-right.active .timeline-card::after,
+.timeline-left.active .timeline-card::before,
+.timeline-left.active .timeline-card::after {
+  position: absolute;
+  display: inline-block;
+  box-sizing: content-box;
+
+  padding: 0px;
+  content: '';
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  bottom: 0;
+  right: 0;
+
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: 8px;
+
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 20%,
+  #e73c7e,
+    transparent 50%,
+    transparent 70%,
+  #23a6d5,
+    transparent 100%
+  );
+
+  animation: 3s spin linear infinite;
+}
+
+.timeline-card::before {
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+@keyframes spin{
+  from {
+    --angle: 0deg;
+  } to {
+    --angle: 360deg;
+  }
+}

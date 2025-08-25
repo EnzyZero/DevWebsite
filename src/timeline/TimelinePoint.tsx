@@ -1,11 +1,21 @@
-interface Direction {
+import { RefObject } from "react"
+
+interface Props {
   direction: "left" | "right";
+  active: boolean;
+  ref?: RefObject<HTMLDivElement | null>;
 }
 
-export default function TimelinePoint({ direction }: Direction) {
+export default function TimelinePoint({ ref, direction, active = false }: Props) {
+
   const directionClass: string = direction === "left"
     ? "circle-to-left"
     : "circle-to-right";
 
-  return <div className={`timeline-point ${directionClass}`}></div>;
+  // animate if point is in the upper half of the viewport
+  const animate: string = active
+    ? 'active'
+    : '';
+
+  return <div ref={ref} className={`timeline-point ${directionClass} ${animate}`}></div>;
 }
