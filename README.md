@@ -1,3 +1,17 @@
+# Ideas
+
+- Console like log messages on website load
+- Make the log messages blur and fade into the background
+- Actual website appears in front of the background
+
+# Steps
+
+- focus on main content
+- make the background log thing / bootloader
+- later maybe add react-scroll-parralax effects
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
