@@ -44,8 +44,8 @@ export function useIsIntersecting<T extends Element>(ref: RefObject<T | null>, o
   return isIntersecting;
 }
 
-export function useIsUpperHalf<T extends Element>(ref: RefObject<T | null>): boolean {
-  const [isLowerHalf, setIsLowerHalf] = useState(false);
+export function useIsInCenter<T extends Element>(ref: RefObject<T | null>, tolerance?: number): boolean {
+  const [isCenter, setIsCenter] = useState(false);
 
   useEffect(() => {
     if (!ref.current) {
@@ -53,29 +53,30 @@ export function useIsUpperHalf<T extends Element>(ref: RefObject<T | null>): boo
       return;
     }
 
-    const handleScroll = () => {
+    const handleEvent = () => {
       if (!ref.current)
         return;
 
       const boundingClientRect: DOMRect = ref.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      const offset = tolerance ? tolerance / 2 : windowHeight / 4;
 
       const boundingClientRectHalf: number = boundingClientRect.top + boundingClientRect.height / 2;
       const distanceFromViewportCenter: number = boundingClientRectHalf - windowHeight / 2;
       
-      // element is in lower half if it is smaller than the middle height of the viewport
-      setIsLowerHalf(distanceFromViewportCenter <= 0);
+      // element is in center if it is in the tolerance interval
+      setIsCenter(distanceFromViewportCenter <= offset && distanceFromViewportCenter >= -offset);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    handleScroll();
+    window.addEventListener('scroll', handleEvent);
+    window.addEventListener('resize', handleEvent);
+    handleEvent();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.addEventListener('scroll', handleEvent);
+      window.addEventListener('resize', handleEvent);
     };
   }, [ref.current]);
 
-  return isLowerHalf;
+  return isCenter;
 }

@@ -10,16 +10,13 @@ export default function TimelineContainer() {
     <div className="timeline-container" id="timeline-container">
       <TimelineBar />
 
-      <TimelineItem>
-        <ExampleProject1 />
-        <ExampleProject1 />
-      </TimelineItem>
-      <TimelineItem>
-        <ExampleProject1 />
+      <TimelineItem date="08/25" >
         <ExampleProject1 />
       </TimelineItem>
-      <TimelineItem>
+      <TimelineItem date="09/25" >
         <ExampleProject1 />
+      </TimelineItem>
+      <TimelineItem date="10/25" >
         <ExampleProject1 />
       </TimelineItem>
     </div>
