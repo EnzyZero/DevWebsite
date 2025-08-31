@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Boot from './boot/Boot'
-import Hero from './Hero'
+import Hero from './hero/Hero'
 import About from './About'
 import Projects from './Projects'
 
@@ -9,10 +9,11 @@ function App() {
 
   return (
     <>
-      <Boot />
+      <Boot isBooted={isBooted} isBootedSetter={setIsBooted} />
+      <Hero active={isBooted} />
+
       {isBooted &&
         <>
-          <Hero />
           <About />
           <Projects />
         </>

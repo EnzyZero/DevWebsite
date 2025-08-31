@@ -1,0 +1,160 @@
+#hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 10rem 0; 
+}
+
+.hero-struct {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  position: relative;
+  opacity: 0;
+  margin: 2rem 0;
+  transform: translateY(50%);
+
+  .hero-struct-braces {
+    display: block;
+    color: var(--red);
+  }
+
+  .hero-struct-pair {
+    display: block;
+    padding-left: 3rem;
+  }
+
+  .hero-struct-key {
+    color: grey;
+  }
+
+  .hero-struct-value {
+    color: white;
+    padding-left: 0.5rem;
+  }
+
+}
+
+
+.hero-title {
+  position: relative;
+  text-align: center;
+  font-family: "Jersey 10";
+  font-size: 8rem;
+  opacity: 0;
+  margin: 0;
+  transform: translateY(50%);
+}
+
+.hero-title-animation {
+  background: linear-gradient(-45deg , #ee7752, #e73c7e, #23a6d5);
+  background-size: 400%;
+  background-clip: text;
+
+  color: transparent;
+  margin: 0 1rem;
+
+  animation: gradient 15s ease infinite;
+}
+
+.hero-title-emoji {
+  font-size: 5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  z-index: 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50%);
+  margin: 3rem 0;
+
+  button {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 3px 15px;
+    margin: 0 4px;
+
+    border: 2px solid grey;
+    border-radius: 30px;
+
+    color: var(--timeline-color-bar);
+    background-color: oklch(from var(--bg-color) calc(l + .05) c h);
+
+    transition: all 300ms ease;
+  }
+
+  button:focus,
+  button:hover {
+    border-color: white;
+    background: oklch(from var(--bg-color) calc(l + .1) c h);
+  }
+
+  button:hover::before,
+  button:focus::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+
+    translate: -50% -50%;
+
+    border-radius: 30px;
+    background-color: white;
+
+    filter: blur(5px);
+    opacity: 0.5;
+  }
+  
+
+  #hero-linked-in-button {
+    font-family: "Jersey 10";
+    font-size: 2.5rem;
+    margin: 0 1rem;
+    border-color: white;
+    background-color: slategray;
+  }
+
+  #hero-linked-in-button:hover,
+  #hero-linked-in-button:focus {
+    background-color: oklch(from slategray calc(l - .1) c h);
+  }
+
+  #hero-linked-in-button:hover::before,
+  #hero-linked-in-button:focus::before {
+    background-color: transparent;
+  }
+
+}
+
+#hero.active {
+
+  .hero-title {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 600ms ease 1s;
+  }
+
+  .hero-struct {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 600ms ease 1.8s;
+  }
+
+  .hero-buttons {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 600ms ease 2.5s;
+  }
+}

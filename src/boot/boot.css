@@ -1,0 +1,36 @@
+#boot {
+  position: fixed;
+  z-index: -1;
+
+  &.active {
+    filter: blur(2px);
+  }
+
+  transition: filter 1s ease;
+}
+
+.boot-log-message-kind {
+
+  &.info {
+    color: grey;
+  }
+
+  &.warn {
+    color: white;
+  }
+
+  &.error {
+    color: var(--red);
+  }
+
+  &.critical {
+    color: red;
+  }
+}
+
+.boot-log-message {
+  padding: 0;
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+

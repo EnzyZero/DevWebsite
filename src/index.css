@@ -8,24 +8,15 @@
   
   --bg-color: rgb(50, 50, 50);
   --bg-color-transparent: rgba(50, 50, 50, 0);
-  --nice-blue: rgb(90, 95, 238);
-  --nice-purple: rgb(150, 75, 255);
   --timeline-bar-color: #ffffff90;
+
+  --blue: #23a6d5;
+  --red: #e73c7e;
+  --green: #23d5ab;
+  --orange: #ee7752;
 }
 
-#hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  h1 {
-    font-family: "Jersey 10";
-    font-size: 8rem;
-
-    margin: 0;
-  }
-
-}
 
 #about {
   display: flex;
