@@ -1,5 +1,5 @@
 import { type ReactNode, useRef } from 'react'
-import { useIsIntersecting, useIsInCenter } from '../customHooks'
+import { useIsIntersecting } from '../customHooks'
 import TimelinePoint from './TimelinePoint'
 
 interface Node {
@@ -15,16 +15,12 @@ export default function TimelineItem({ children, date }: Node) {
   const itemIsIntersecting: boolean = useIsIntersecting(ref, options);
   const show: string = itemIsIntersecting ? 'show' : '';
 
-  // mark item as active if it is in the center of the screen
-  const itemIsInCenter = useIsInCenter(ref, window.innerHeight / 4);
-  const active: string = itemIsInCenter ? 'active' : '';
-
   return (
     <div ref={ref} className="timeline-item">
-      <div className={`timeline-left enter-from-back ${show} ${active}`}>
+      <div className={`timeline-left enter-from-back ${show}`}>
         <TimelinePoint text={date} />
       </div>
-      <div className={`timeline-right enter-from-right ${show} ${active}`}>
+      <div className={`timeline-right enter-from-right ${show}`}>
         {children}
       </div>
     </div>

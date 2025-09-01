@@ -4,7 +4,8 @@
   flex-direction: column;
   align-items: center;
 
-  padding: 10vh 0 15vh 0; 
+  padding-top: 5rem;
+  padding-bottom: 25vh;
 }
 
 .hero-struct {
@@ -100,7 +101,6 @@
     transition: all 300ms ease;
   }
 
-  button:focus::before,
   button:hover::before {
     position: absolute;
     content: '';
@@ -121,8 +121,8 @@
   }
 
   #hero-linked-in-link button {
-    border-color: white;
-    background-color: slategray;
+    border-color: cornflowerblue;
+    background-color: cornflowerblue;
   }
 
 
@@ -158,12 +158,16 @@
     font-size: 1.2rem;
     width: 80%;
     margin-bottom: 0;
+
+    .hero-struct-pair {
+      padding-left: 2rem;
+    }
   }
+
 
   .hero-title {
     width: 90%;
     font-size: 5.5rem;
-    text-align: left;
 
     word-break: break-all;
     overflow-wrap: break-word;
@@ -189,10 +193,14 @@
       position: relative;
       font-size: 1.5rem;
       font-weight: bold;
-      padding: 7px 15px;
+      padding: 15px 30px;
+      border-radius: 50px;
+      min-width: 200px;
       margin-top: 4px;
     }
 
+    button:hover::before {
+      border-radius: 50px;
+    }
   }
-
 }

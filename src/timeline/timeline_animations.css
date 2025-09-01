@@ -12,8 +12,8 @@
   animation: gradient 5s ease infinite;
 }
 
-
-.active .timeline-point {
+.timeline-item:hover .timeline-point,
+.timeline-item:focus .timeline-point {
   width: 100px;
   height: 20px;
 
@@ -105,10 +105,11 @@
   inherits: false;
 }
 
-.timeline-right.active .timeline-card::before,
-.timeline-right.active .timeline-card::after,
-.timeline-left.active .timeline-card::before,
-.timeline-left.active .timeline-card::after {
+.timeline-item:hover .timeline-card::before,
+.timeline-item:hover .timeline-card::after,
+.timeline-item:focus .timeline-card::before,
+.timeline-item:focus .timeline-card::after {
+
   position: absolute;
   display: inline-block;
   box-sizing: content-box;
@@ -128,7 +129,8 @@
   background-color: white;
 }
 
-.timeline-card::before {
+.timeline-item:hover .timeline-card::before,
+.timeline-item:focus .timeline-card::before {
   filter: blur(10px);
   opacity: 0.5;
 }
@@ -138,5 +140,18 @@
     --angle: 0deg;
   } to {
     --angle: 360deg;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .timeline-point {
+    width: 100px;
+    height: 20px;
+
+    color: var(--timeline-color-bar);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
   }
 }
