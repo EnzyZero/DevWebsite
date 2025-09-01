@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Boot from './boot/Boot'
 import Hero from './hero/Hero'
-import About from './About'
-import Projects from './Projects'
+import About from './about/About'
+import Projects from './projects/Projects'
 
 function App() {
   const [isBooted, setIsBooted] = useState(false);

@@ -1,0 +1,30 @@
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-family: "Jersey 10";
+    font-size: 8rem;
+
+    margin: 0;
+  }
+
+  p {
+    width: 86.5%;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #about {
+    display: block;
+    position: relative;
+    left: 5%;
+
+    h1 {
+      font-size: 6rem;
+      text-align: left;
+    }
+  }
+}

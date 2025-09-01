@@ -13,8 +13,7 @@ export default function Hero({ active }: Props) {
     <div id="hero" className={activeClass}>
       <h1 className="hero-title">
         Hi, I'm a 
-        <span className="hero-title-animation">Developer</span>
-        !
+        <span className="hero-title-animation"> Developer</span>
       </h1>
       <div className="hero-struct">
         <span className="hero-struct-braces">{"{"}</span>
@@ -34,13 +33,37 @@ export default function Hero({ active }: Props) {
           :
           <span className="hero-struct-value">junior_dev</span>
         </div>
+        <div className="hero-struct-pair">
+          <span className="hero-struct-key">domain</span>
+          :
+          <span className="hero-struct-value">petracek.me</span>
+        </div>
+
+        <div className="hero-struct-pair-spacer"></div>
+
+        <div className="hero-struct-pair">
+          <span className="hero-struct-key">employed</span>
+          :
+          <span className="hero-struct-value false">false</span>
+        </div>
+        <div className="hero-struct-pair">
+          <span className="hero-struct-key">cs_student</span>
+          :
+          <span className="hero-struct-value true">true</span>
+        </div>
 
         <span className="hero-struct-braces">{"}"}</span>
       </div>
       <div className="hero-buttons">
-        <button>About Me</button>
-        <button>Projects</button>
-        <button id="hero-linked-in-button">LinkedIn</button>
+        <a href="#about">
+          <button>About</button>
+        </a>
+        <a href="#projects">
+          <button>Projects</button>
+        </a>
+        <a id="hero-linked-in-link" href="https://www.linkedin.com/in/jakob.petracek" target="_blank">
+          <button>LinkedIn</button>
+        </a>
       </div>
     </div>
   );
