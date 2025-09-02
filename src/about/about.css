@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
+  transition: opacity 500ms ease 3s;
 
   h1 {
     font-family: "Jersey 10";
@@ -11,9 +13,14 @@
   }
 
   p {
-    width: 86.5%;
+    width: 95%;
+    max-width: 100ch;
     margin-bottom: 30px;
   }
+}
+
+#about.active {
+  opacity: 1;
 }
 
 @media screen and (max-width: 800px) {
@@ -27,4 +34,21 @@
       text-align: left;
     }
   }
+}
+
+.techstack ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 50ch;
+}
+
+.techstack ul li {
+  list-style: none;
+}
+
+.techstack ul li * {
+  width: 60px;
+  height: 60px;
 }

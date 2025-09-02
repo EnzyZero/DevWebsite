@@ -1,5 +1,5 @@
+import Linkedin from '../assets/linkedin.svg?react'
 import './hero.css'
-
 
 interface Props {
   active: boolean;

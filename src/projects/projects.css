@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
+
+  transition: opacity 500ms ease 3s;
 
   h1 {
     font-family: "Jersey 10";
@@ -11,9 +14,14 @@
   }
 
   p {
-    width: 86.5%;
+    width: 95%;
+    max-width: 100ch;
     margin-bottom: 30px;
   }
+}
+
+#projects.active {
+  opacity: 1;
 }
 
 @media screen and (max-width: 800px) {

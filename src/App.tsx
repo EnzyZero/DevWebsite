@@ -3,6 +3,7 @@ import Boot from './boot/Boot'
 import Hero from './hero/Hero'
 import About from './about/About'
 import Projects from './projects/Projects'
+import Footer from './footer/Footer'
 
 function App() {
   const [isBooted, setIsBooted] = useState(false);
@@ -11,13 +12,9 @@ function App() {
     <>
       <Boot isBooted={isBooted} isBootedSetter={setIsBooted} />
       <Hero active={isBooted} />
-
-      {isBooted &&
-        <>
-          <About />
-          <Projects />
-        </>
-      }
+      <About active={isBooted} />
+      <Projects active={isBooted} />
+      <Footer />
     </>
   )
 }
