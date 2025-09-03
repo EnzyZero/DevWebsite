@@ -15,17 +15,20 @@ import HtmlSVG from '../assets/html.svg?react'
 import ViteSVG from '../assets/vite.svg?react'
 
 import LinuxSVG from '../assets/linux.svg?react'
-import UbuntuSVG from '../assets/ubuntu.svg?react'
 import VimSVG from '../assets/vim.svg?react'
 import DockerSVG from '../assets/docker.svg?react'
 import GitlabSVG from '../assets/gitlab.svg?react'
 
+import PostgresqlSVG from '../assets/postgresql.svg?react'
+import OracleSVG from '../assets/oracle.svg?react'
+import EspressifSVG from '../assets/espressif.svg?react'
 
-export default function TechstackMarquee() {
+
+export default function Techstack() {
 
   return (
     <div className="techstack">
-      <ul>
+      <ul className="techstack-content">
         <li key="c"><CSVG /></li>
         <li key="cpp"><CppSVG /></li>
         <li key="cs"><CsSVG /></li>
@@ -40,10 +43,35 @@ export default function TechstackMarquee() {
         <li key="html"><HtmlSVG /></li>
         <li key="vite"><ViteSVG /></li>
         <li key="linux"><LinuxSVG /></li>
-        <li key="ubuntu"><UbuntuSVG /></li>
         <li key="vim"><VimSVG /></li>
         <li key="docker"><DockerSVG /></li>
         <li key="git"><GitlabSVG /></li>
+        <li key="pgsql"><PostgresqlSVG /></li>
+        <li key="oracle"><OracleSVG /></li>
+        <li key="esp"><EspressifSVG /></li>
+      </ul>
+
+      <ul className="techstack-content">
+        <li key="c"><CSVG /></li>
+        <li key="cpp"><CppSVG /></li>
+        <li key="cs"><CsSVG /></li>
+        <li key="cmake"><CMakeSVG /></li>
+        <li key="java"><JavaSVG /></li>
+        <li key="gradle"><GradleSVG /></li>
+        <li key="python"><PythonSVG /></li>
+        <li key="javascript"><JavaScriptSVG /></li>
+        <li key="typescript"><TypeScriptSVG /></li>
+        <li key="react"><ReactSVG /></li>
+        <li key="css"><CssSVG /></li>
+        <li key="html"><HtmlSVG /></li>
+        <li key="vite"><ViteSVG /></li>
+        <li key="linux"><LinuxSVG /></li>
+        <li key="vim"><VimSVG /></li>
+        <li key="docker"><DockerSVG /></li>
+        <li key="git"><GitlabSVG /></li>
+        <li key="pgsql"><PostgresqlSVG /></li>
+        <li key="oracle"><OracleSVG /></li>
+        <li key="esp"><EspressifSVG /></li>
       </ul>
     </div>
   );

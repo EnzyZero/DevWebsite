@@ -20,3 +20,9 @@ section {
   margin-bottom: 5rem;
 }
 
+@media screen and (max-width: 768) {
+  p {
+    font-size: 1.2rem;
+  }
+}
+

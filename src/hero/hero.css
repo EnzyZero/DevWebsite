@@ -101,18 +101,8 @@
     transition: all 300ms ease;
   }
 
-  button:hover::before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    z-index: -1;
-
-    background-color: white;
-    filter: blur(5px);
+  button:hover {
+    scale: 105%;
   }
 
   #hero-linked-in-link {
@@ -123,6 +113,17 @@
   #hero-linked-in-link button {
     border-color: cornflowerblue;
     background-color: cornflowerblue;
+  }
+
+  #hero-github-link {
+    color: orange;
+    text-decoration: none;
+  }
+
+  #hero-github-link button {
+    color: white;
+    border-color: black;
+    background-color: black;
   }
 }
 
@@ -153,7 +154,7 @@
 @media screen and (max-width: 800px) {
 
   .hero-struct {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     width: 80%;
     margin-bottom: 0;
 
@@ -161,7 +162,6 @@
       padding-left: 2rem;
     }
   }
-
 
   .hero-title {
     width: 90%;
@@ -195,10 +195,6 @@
       border-radius: 50px;
       min-width: 200px;
       margin-top: 4px;
-    }
-
-    button:hover::before {
-      border-radius: 50px;
     }
   }
 }

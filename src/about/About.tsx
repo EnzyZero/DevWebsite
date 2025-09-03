@@ -7,7 +7,9 @@ export default function About({ active }: { active: boolean}) {
     <section id="about" className={active ? 'active' : ''}>
       <h1>About</h1>
       <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-      <Techstack />
+      <p>Here are some of the technologies I have used for <strong>at least 2 weeks:</strong>
+        <Techstack />
+      </p>
     </section>
   );
 }

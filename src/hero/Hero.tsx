@@ -1,4 +1,3 @@
-import Linkedin from '../assets/linkedin.svg?react'
 import './hero.css'
 
 interface Props {
@@ -63,6 +62,9 @@ export default function Hero({ active }: Props) {
         </a>
         <a id="hero-linked-in-link" href="https://www.linkedin.com/in/jakob.petracek" target="_blank">
           <button>LinkedIn</button>
+        </a>
+        <a id="hero-github-link" href="https://github.com/EnzyZero" target="_blank">
+          <button>Github</button>
         </a>
       </div>
     </div>
