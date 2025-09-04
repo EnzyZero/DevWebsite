@@ -28,7 +28,8 @@
   display: flex;
   overflow: hidden;
   user-select: none;
-  margin: 1rem 0;
+  width: 95%;
+  max-width: 100ch;
   gap: var(--gap);
 }
 
