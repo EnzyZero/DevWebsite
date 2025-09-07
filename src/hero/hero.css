@@ -186,7 +186,6 @@
 
   .hero-struct {
     font-size: 1.5rem;
-    width: 80%;
     margin-bottom: 0;
 
     .hero-struct-pair {
@@ -201,6 +200,10 @@
     word-break: break-all;
     overflow-wrap: break-word;
     white-space: normal;
+  }
+
+  .hero-profile-container {
+    width: 100%;
   }
 
   .hero-profile-picture.desktop {

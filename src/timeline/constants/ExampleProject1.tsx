@@ -1,4 +1,5 @@
 import TimelineCard from '../TimelineCard'
+import { Link } from 'react-router'
 
 const text = <p>
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.
@@ -9,9 +10,10 @@ const techstack = <ul className="techstack">
   <li key="CMake">CMake</li>
 </ul>
 
-const button = <button className="timeline-card-button">
-  Show more
-</button>
+const button = 
+<Link to='projects/start'>
+  <button className="timeline-card-button">Show more</button>
+</Link>
 
 export default function ExampleProject1() {
 

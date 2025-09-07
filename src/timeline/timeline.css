@@ -61,6 +61,12 @@
   overflow: hidden;
 }
 
+/* for <Link to=""> from react router */
+.timeline-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .timeline-left {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,6 @@
 
 const longestKindCharacterCount: number = 8; 
-type Kind = "info" | "warn" | "error" | "critical";
+export type Kind = "info" | "warn" | "error" | "critical";
 
 
 export default function printLogMessage(kind: Kind, text: string): HTMLElement {
