@@ -71,7 +71,7 @@ export default function Hero({ active }: Props) {
         <a href="#projects">
           <button>Projects</button>
         </a>
-        <a id="hero-linked-in-link" href="https://www.linkedin.com/in/jakob.petracek" target="_blank">
+        <a id="hero-linked-in-link" href="https://www.linkedin.com/in/jakob-petracek" target="_blank">
           <button>LinkedIn</button>
         </a>
         <a id="hero-github-link" href="https://github.com/EnzyZero" target="_blank">

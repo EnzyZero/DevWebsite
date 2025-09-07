@@ -45,7 +45,8 @@
   align-content: center;
 
   width: fit-content;
-  margin: 0 auto;
+  margin: 0;
+  left: 0;
   gap: 50px;
 }
 
@@ -78,7 +79,6 @@
 
 .timeline-right {
   grid-column: 2;
-  width: 90%;
 }
 
 .timeline-point {
@@ -142,10 +142,6 @@
 }
 
 @media screen and (max-width: 800px) {
-
-  .timeline-item {
-    width: 100%;
-  }
 
   .timeline-card h2 {
     font-size: 4rem;

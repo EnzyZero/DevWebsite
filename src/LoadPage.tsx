@@ -15,7 +15,7 @@ export default function LoadPage({ path }: { path: string }) {
     getPage(path, ref);
 
   }, [ref]);
-  
+
   return <div ref={ref} className="load-page" id={path}></div>
 }
 
