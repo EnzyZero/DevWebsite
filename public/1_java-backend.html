@@ -1,0 +1,25 @@
+<h1>Java Beehive Monitoring Backend</h1>
+<h2>07/2025</h2>
+<p>
+The first thing I did in my summer break was to learn Java. 
+I had to know the language for my upcoming exchange semester as the university taught and used
+it. After grinding java.dev tutorials for two weeks, I thought about a project which could give me
+some hands on practise with Java: making a backend app which recieves messages over MQTT from other devices,
+collect weather data and the sending devices' states (online/offline) and saves that to a sql database.
+</p><p>
+As my family runs some beehives, I planned on building a system with sensors on each hive to track
+weight, temperature and humidity. So I began building the backend needed for this, using Java, Gradle
+as a build tool and writing a few lines of sql for the PostgreSQL database. The app produces a bunch of logs
+to help backtrack actions should issues arise during runtime - it is supposed to run basically forever after all.
+</p><p>
+It was a really good opportunity to prepare for my Java classes, I especially experimented around with the 
+reflection capabilities of Java. The Backend uses annotations to register 'components'. Before the app starts, 
+the classpath is scanned for classes containing these components, scanning their dependencies, solving the 
+dependency graph with Kahn's Algorithm and instantiating each component with the right dependency.
+</p><p>
+I knew that such dependency-injection libraries existed, but I wanted to try make on my own, it is really
+minimal, just containing as much functionality as I needed, but it really improved the code-quality 
+by reducing code couplement and less dependency headaches.
+</p>
+
+

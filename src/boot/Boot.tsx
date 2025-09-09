@@ -61,8 +61,10 @@ export class boot {
     else return false;
   }
 
+  // call after each print to keep the boot element scrolled to the latest log message
+  // plus some offset for readability
   private static scrollToBottom() {
-    this.bootRef.current!.scrollTop = this.bootRef.current!.scrollHeight;
+    this.bootRef.current!.scrollTop = this.bootRef.current!.scrollHeight + 10;
   }
 
   static active(b: boolean): void {

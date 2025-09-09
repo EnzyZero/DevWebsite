@@ -37,3 +37,9 @@
   width: fit-content;
 }
 
+@media screen and (max-width: 768px) {
+  .boot-log-message {
+    font-size: 0.8rem;
+  }
+}
+

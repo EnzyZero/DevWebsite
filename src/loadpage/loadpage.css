@@ -1,0 +1,29 @@
+.loadpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-family: "Jersey 10";
+    font-size: 8rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.2rem;
+    width: 95%;
+    max-width: 100ch;
+    margin-bottom: 30px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .loadpage {
+
+    h1 {
+      font-size: 5rem;
+    }
+  }
+}

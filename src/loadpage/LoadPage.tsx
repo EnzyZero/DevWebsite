@@ -1,5 +1,6 @@
 import { type RefObject, useRef, useEffect } from 'react'
-import { boot, sleep } from './boot/Boot'
+import { boot, sleep } from '../boot/Boot'
+import './loadpage.css'
 
 export default function LoadPage({ path }: { path: string }) {
   const ref: RefObject<null | HTMLDivElement> = useRef(null);
@@ -16,7 +17,7 @@ export default function LoadPage({ path }: { path: string }) {
 
   }, [ref]);
 
-  return <div ref={ref} className="load-page" id={path}></div>
+  return <div ref={ref} className="loadpage" id={path}></div>
 }
 
 async function getPage(path: string, ref: RefObject<null | HTMLDivElement>) {

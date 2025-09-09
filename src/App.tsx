@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import Boot from './boot/Boot'
 import Home from './Home'
-import LoadPage from './LoadPage'
+import LoadPage from './loadpage/LoadPage'
 
 export default function App() {
   const [isBooted, setIsBooted] = useState(false);
