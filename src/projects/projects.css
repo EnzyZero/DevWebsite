@@ -5,24 +5,45 @@
   opacity: 0;
 
   transition: opacity 500ms ease 3s;
+}
 
-  h1 {
-    font-family: "Jersey 10";
-    font-size: 8rem;
+#projects > h1 {
+  font-family: "Jersey 10";
+  font-size: 8rem;
 
-    margin: 0;
-  }
+  margin: 0;
+}
 
-  p {
-    width: 95%;
-    max-width: 100ch;
-    margin-bottom: 30px;
-  }
+#projects > p {
+  width: 95%;
+  max-width: 100ch;
+  margin-bottom: 30px;
 }
 
 #projects.active {
   opacity: 1;
 }
+
+.projects-container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+
+.project-card {
+  background-color: var(--secondary);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.project-card-title {
+  font-family: 'Jersey 10', sans-serif;
+  font-size: 5rem;
+}
+
+
 
 @media screen and (max-width: 768px) {
 
@@ -31,14 +52,14 @@
     display: flex;
     justify-content: center;
     position: relative;
+  }
 
-    h1 {
-      font-size: 5rem;
-      text-align: left;
-    }
+  #projects > h1 {
+    font-size: 5rem;
+    text-align: left;
+  }
 
-    p {
-      font-size: 1.2rem;
-    }
+  #projects > p {
+    font-size: 1.2rem;
   }
 }

@@ -14,6 +14,8 @@
   --red: #e73c7e;
   --green: #23d5ab;
   --orange: #ee7752;
+
+  --secondary: oklch(from var(--bg-color) calc(l + 0.01) c h);
 }
 
 section {

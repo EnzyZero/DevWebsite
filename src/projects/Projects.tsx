@@ -1,4 +1,4 @@
-import TimelineContainer from '../timeline/TimelineContainer'
+import ProjectsContainer from './ProjectsContainer'
 import { projectsText } from '../constants/texts'
 import './projects.css'
 
@@ -8,7 +8,7 @@ export default function Projects({ active }: { active: boolean }) {
     <section id="projects" className={active ? 'active' : ''}>
       <h1>Projects</h1>
       {projectsText} 
-      <TimelineContainer />
+      <ProjectsContainer />
     </section>
   );
 }
