@@ -55,7 +55,6 @@ export default function Hero({ active }: Props) {
       <h1 className="hero-title">
         Hi, I'm a 
         <span className="hero-title-animation"> Developer</span>
-        !
       </h1>
 
 

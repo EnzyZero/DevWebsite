@@ -29,7 +29,7 @@
   overflow: hidden;
   user-select: none;
   width: 95%;
-  max-width: 100ch;
+  max-width: 120ch;
   gap: var(--gap);
 }
 
