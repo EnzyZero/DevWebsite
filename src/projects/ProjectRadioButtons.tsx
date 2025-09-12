@@ -1,5 +1,5 @@
 import { useState, useEffect, type RefObject } from 'react'
-import { Code, Layers, GraduationCap, Info } from 'lucide-react'
+import { Code, Layers, GraduationCap, AtSign } from 'lucide-react'
 
 export default function ProjectRadioButtons({ cardsContainerRef }: { cardsContainerRef: RefObject<HTMLDivElement | null> }) {
   const [selected, setSelected] = useState('all');
@@ -23,7 +23,7 @@ export default function ProjectRadioButtons({ cardsContainerRef }: { cardsContai
       if (selected === 'all')
       {
         card.style.display = 'block';
-        return;
+        continue;
       }
 
       if (card.classList.contains(selected))
@@ -40,11 +40,21 @@ export default function ProjectRadioButtons({ cardsContainerRef }: { cardsContai
         <input 
           type="radio"
           name="type"
+          value="all"
+          checked={selected === 'all'}
+          onChange={handleChange} 
+          />
+          <span><AtSign color="#ffbe6f" /> {'<all/>'}</span>
+      </label>
+      <label>
+        <input 
+          type="radio"
+          name="type"
           value="career"
           checked={selected === 'career'}
           onChange={handleChange} 
           />
-          <span><Layers color="white" /> career</span>
+          <span><Layers color="#62a0ea" /> {'<career/>'}</span>
       </label>
       <label>
         <input 
@@ -54,7 +64,7 @@ export default function ProjectRadioButtons({ cardsContainerRef }: { cardsContai
           checked={selected === 'education'}
           onChange={handleChange} 
           />
-          <span><GraduationCap color="white" /> education</span>
+          <span><GraduationCap color="#8ff0a4" /> {'<education/>'}</span>
       </label>
       <label>
         <input 
@@ -64,17 +74,7 @@ export default function ProjectRadioButtons({ cardsContainerRef }: { cardsContai
           checked={selected === 'project'}
           onChange={handleChange} 
           />
-          <span><Code color="white" /> projects</span>
-      </label>
-      <label>
-        <input 
-          type="radio"
-          name="type"
-          value="all"
-          checked={selected === 'all'}
-          onChange={handleChange} 
-          />
-          <span><Info color="white" /> all</span>
+          <span><Code color="#dc8add" /> {'<projects/>'}</span>
       </label>
     </div>
   );

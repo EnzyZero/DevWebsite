@@ -1,5 +1,5 @@
 import Techstack from './Techstack'
-import { aboutMeText } from '../constants/texts'
+import { aboutMeText } from '../texts'
 import './about.css'
 
 export default function About({ active }: { active: boolean}) {

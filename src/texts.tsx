@@ -1,7 +1,7 @@
 
 export const projectsText = <p>
-These projects and milestones highlight my growth as a developer over the past three semesters. 
-Each one reflects a step forward, and I’m excited to keep building and learning.
+These cards highlight my journey and growth as a developer.
+Each project, job, and learning experience represents a step forward—and I’m excited to keep building, exploring, and learning.
 </p>
 
 export const aboutMeText = <>
@@ -14,7 +14,7 @@ I began with Python and JavaScript just before university, then moved on to C in
 Around that time, I also started programming with Vim on an Arch Linux machine.
 
 In my third semester, I built this website, learned Java and C#, rented a domain, and set up a homelab server. 
-I'm currently pursuing a bachelor's degree in computer science and spend much of my free time working on personal projects — feel free to explore the Projects section below!
+I'm currently pursuing a bachelor's degree in computer science and spend much of my free time working on personal projects — feel free to explore the sections below!
 </p>
 <p>Here are most of the technologies I've used for at <strong>least two weeks</strong> throughout my journey:</p>
 </>;

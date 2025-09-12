@@ -16,11 +16,11 @@ export default function ProjectCard({ project }: { project: Project }) {
   function type_maker(type: ProjectType) {
     switch (type) {
       case 'career': 
-        return <Layers color="white" />;
+        return <Layers color="#62a0ea" />;
       case 'project':
-        return <Code color="white" />;
+        return <Code color="#dc8add" />;
       case 'education':
-        return <GraduationCap color="white" />;
+        return <GraduationCap color="#8ff0a4" />;
     }
   }
 

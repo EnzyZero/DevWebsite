@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import ProjectRadioButtons from './ProjectRadioButtons'
 import ProjectsContainer from './ProjectsContainer'
-import { projectsText } from '../constants/texts'
+import { projectsText } from '../texts'
 import './projects.css'
 
 export default function Projects({ active }: { active: boolean }) {
@@ -9,7 +9,7 @@ export default function Projects({ active }: { active: boolean }) {
 
   return (
     <section id="projects" className={active ? 'active' : ''}>
-      <h1>Projects</h1>
+      <h1>My Journey</h1>
       {projectsText} 
       <ProjectRadioButtons cardsContainerRef={ref} />
       <ProjectsContainer ref={ref} />
