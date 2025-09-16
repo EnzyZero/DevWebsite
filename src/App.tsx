@@ -18,7 +18,6 @@ export default function App() {
           <Route path="/" element={<Home active={isBooted} />} />
 
           <Route path="projects" >
-            <Route path="start" element={<LoadPage path='/start.html' />} />
           </Route>
 
           <Route path='*' element={<NotFound />} />
