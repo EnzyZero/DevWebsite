@@ -1,0 +1,45 @@
+#boot {
+  position: fixed;
+  z-index: -1;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100vw;
+
+  &.active {
+    filter: blur(3px);
+  }
+
+  transition: filter 1s ease;
+}
+
+.boot-log-message-kind {
+
+  &.info {
+    color: grey;
+  }
+
+  &.warn {
+    color: white;
+  }
+
+  &.error {
+    color: var(--red);
+  }
+
+  &.critical {
+    color: red;
+  }
+}
+
+.boot-log-message {
+  padding: 0;
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+  .boot-log-message {
+    font-size: 0.8rem;
+  }
+}
+

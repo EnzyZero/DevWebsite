@@ -1,0 +1,41 @@
+:root {
+  font-family: "JetBrains Mono", monospace, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+
+  color: white;
+  background-color: var(--bg-color);
+  box-sizing: border-box;
+  
+  --bg-color: rgb(50, 50, 50);
+  --bg-color-transparent: rgba(50, 50, 50, 0);
+  --timeline-bar-color: #ffffff90;
+
+  --blue: #23a6d5;
+  --red: #e73c7e;
+  --green: #23d5ab;
+  --orange: #ee7752;
+
+  --primary:#ffffff90;
+  --secondary: oklch(from var(--bg-color) calc(l + 0.01) c h);
+  --tertiary: oklch(from var(--secondary) calc(l + 0.05) c h);
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
