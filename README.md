@@ -38,5 +38,6 @@ Be aware that the link form the journey card to the article has to match the `<a
 
 **Editing texts** the homepage is split into a few sections. Most of the text is saved in variables (in jsx format) in `src/text.tsx` and can be changed there. Otherwise, please look up the corresponding `src/*.tsx` file, most likely saved in a folder with the same name as the section, and edit the text there. 
 
-> [!warning] Project == My Journey
-> due to a previous version of the website, the "My Journey" section of the website is referenced as the "project" section in the code.
+> [!WARNING]
+> __Project == My Journey__
+> Due to a previous version of the website, the "My Journey" section of the website is referenced as the "project" section in the code.
