@@ -1,50 +1,11 @@
 import ProfileJPG from '../assets/me.jpg'
+import { heroStructText as heroStruct } from '../texts';
 import './hero.css'
 
 interface Props {
   active: boolean;
 }
 
-const heroStruct = 
-<div className="hero-struct">
-  <span className="hero-struct-braces">{"{"}</span>
-
-  <div className="hero-struct-pair">
-    <span className="hero-struct-key">name</span>
-    :
-    <span className="hero-struct-value">jakob</span>
-  </div>
-  <div className="hero-struct-pair">
-    <span className="hero-struct-key">surname</span>
-    :
-    <span className="hero-struct-value">petracek</span>
-  </div>
-  <div className="hero-struct-pair">
-    <span className="hero-struct-key">exp</span>
-    :
-    <span className="hero-struct-value">junior_dev</span>
-  </div>
-  <div className="hero-struct-pair">
-    <span className="hero-struct-key">domain</span>
-    :
-    <span className="hero-struct-value">petracek.me</span>
-  </div>
-
-  <div className="hero-struct-pair-spacer"></div>
-
-  <div className="hero-struct-pair">
-    <span className="hero-struct-key">employed</span>
-    :
-    <span className="hero-struct-value false">false</span>
-  </div>
-  <div className="hero-struct-pair">
-    <span className="hero-struct-key">cs_student</span>
-    :
-    <span className="hero-struct-value true">true</span>
-  </div>
-
-  <span className="hero-struct-braces">{"}"}</span>
-</div>;
 
 export default function Hero({ active }: Props) {
 

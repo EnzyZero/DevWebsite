@@ -1,83 +1,42 @@
-# Ideas
+# Welcome!
+*to my portfolio website*
 
-- Console like log messages on website load
-- Make the log messages blur and fade into the background
-- Actual website appears in front of the background
-
-# Steps
-
-- focus on main content
-- make the background log thing / bootloader
-- later maybe add react-scroll-parralax effects
+Built with React, Vite and pure Css. Nothing too fancy...
 
 ---
 
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Usage
 
-Currently, two official plugins are available:
+**Adding a new "My Journey" card** can be done by making a new entry into the `projects` array in the `src/projects.ts` file. Most fields need to be defined, a few are optional. Depending on the link type - if it is an article on the site - you may need to create an appropriate file in the `public` folder.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Adding a new article**: just add the html file and its assets in the `public` folder for short stories about projects which aren't 'just code' and cannot be simply linked to a github. Then, for *react-router* to recognise this resource/load the ``LoadPage`` (which then loads the article), you must make an entry in the ``App.tsx`` like so:
 
-## Expanding the ESLint configuration
+```typescript
+ return (
+    <>
+      <Boot isBooted={isBooted} isBootedSetter={setIsBooted} />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home active={isBooted} />} />
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+          <Route path="projects" >
+            // this is the new entry
+            <Route path="<any-name-path>" element={<LoadPage path="<actual-public-folder-resource-path>" />} />
+            
+          </Route>
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Be aware that the link form the journey card to the article has to match the `<any-name-path>` you gave the Route in the jsx code, not the actual path.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Editing texts** the homepage is split into a few sections. Most of the text is saved in variables (in jsx format) in `src/text.tsx` and can be changed there. Otherwise, please look up the corresponding `src/*.tsx` file, most likely saved in a folder with the same name as the section, and edit the text there. 
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+> [!warning] Project == My Journey
+> due to a previous version of the website, the "My Journey" section of the website is referenced as the "project" section in the code.
